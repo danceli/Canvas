@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    overflow: hidden;
+}
+#canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #eee;
+}
+#options{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+ul{
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+li{
+    cursor: pointer;
+    margin: 4px;
+}
+ul#actions li{
+    z-index: 999;
+}
+ul#actions i{
+    font-size: 20px;
+    transition: all 0.2s;
+}
+
+ul#actions li.active{
+    transform: scale(1.25);
+    color: red;
+}
+ul#color >li{
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: all 0.2s ease-out;
+}
+li#black{
+    background: black;
+}
+li#green{
+    background: green;
+}
+li#red{
+    background: red;
+}
+li#blue{
+    background: blue;
+}
+ul#thickness > li{
+    margin: 6px;
+    height: 20px;
+    background-color: black;
+    box-shadow: 0 0 4px rgba(80, 80, 80, 0.4);
+    transition: all 0.2s ease-out;
+    position: relative;
+}
+ul#thickness > li::after{
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+}
+li#thin{
+    width: 2px;
+}
+li#middle{
+    width: 6px;
+}
+li#thick{
+    width: 10px;
+}
+ul#color.remove,
+ul#thickness.remove{
+  display: none;
+}
+ul#color.active,
+ul#thickness.active{
+  animation: active 0.2s;
+  transition: all 0.2s;
+}
+@keyframes active{
+    0%{
+      display: inline-flex;
+      transform: translate(-999px);
+    }
+    80%{
+      transform: translate(10px);
+    }
+    100%{
+      transform: translate(0px);
+    }
+}
+ul#color > li.active,
+ul#thickness > li.active{
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(80, 80, 80, 0.8);
+}
